@@ -19,16 +19,26 @@ def generate_password(length, use_digits, use_special):
     specials = "!@#$%^&*()_+"
 
     possible_characters = ""
-    # TODO: concat lower_letters and upper_letters into 'possible_characters'
+    possible_characters += lower_letters + upper_letters
 
-    # TODO: if 'use_digits' is True, concat 'digits' to 'possible_characters'
 
-    # TODO: if 'use_special' is True, concat 'specials' to 'possible_characters'
+    if use_digits:
+        possible_characters += digits
+    if use_special:
+        possible_characters += specials
 
-    # TODO: build a list from 'possible_characters' so that each character is a list item
+    if use_special:
+        possible_characters += specials
+    if use_digits:
+        possible_characters += digits
+
+    possible_characters_list = list(possible_characters)
 
     password = ""
     # TODO: use loop to generate the random password
+
+    for _ in range(length):
+        password += random.choice(possible_characters_list)
 
     return password
 
